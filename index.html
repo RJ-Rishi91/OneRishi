@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OneRishi | The Convergence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,500&amp;family=Inter:wght@400;600;800&amp;family=Space+Grotesk:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary": "#2f2d4e",
+                        "on-tertiary-container": "#282647",
+                        "on-primary-fixed": "#410001",
+                        "surface-container-highest": "#333153",
+                        "on-secondary": "#452b00",
+                        "tertiary-fixed-dim": "#c6c2ed",
+                        "inverse-primary": "#bd0e12",
+                        "on-secondary-fixed-variant": "#633f00",
+                        "primary-container": "#ff5447",
+                        "on-primary": "#690004",
+                        "tertiary-container": "#908db4",
+                        "on-error": "#690005",
+                        "primary": "#ffb4aa",
+                        "on-tertiary-fixed": "#191738",
+                        "surface-tint": "#ffb4aa",
+                        "background": "#110f30",
+                        "on-secondary-fixed": "#291800",
+                        "inverse-surface": "#e3dfff",
+                        "outline": "#ac8884",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#e3dfff",
+                        "on-primary-fixed-variant": "#930007",
+                        "surface": "#110f30",
+                        "surface-container-high": "#282648",
+                        "surface-bright": "#373558",
+                        "tertiary": "#c6c2ed",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#333153",
+                        "on-tertiary-fixed-variant": "#454366",
+                        "on-surface-variant": "#e5bdb8",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#3f2700",
+                        "secondary-container": "#c98500",
+                        "secondary-fixed": "#ffddb3",
+                        "primary-fixed-dim": "#ffb4aa",
+                        "on-background": "#e3dfff",
+                        "inverse-on-surface": "#2f2d4e",
+                        "surface-container": "#1e1b3d",
+                        "surface-container-low": "#191738",
+                        "secondary": "#ffb951",
+                        "outline-variant": "#5c403c",
+                        "tertiary-fixed": "#e3dfff",
+                        "on-primary-container": "#5c0003",
+                        "surface-dim": "#110f30",
+                        "secondary-fixed-dim": "#ffb951",
+                        "surface-container-lowest": "#0c092a",
+                        "primary-fixed": "#ffdad5",
+                        "studio-cyan": "#00E5FF",
+                        "agency-purple": "#BF5AF2"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Space Grotesk", "monospace"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .snap-container {
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            height: 100vh;
+            scroll-behavior: smooth;
+        }
+        .snap-section {
+            scroll-snap-align: start;
+            min-height: 100vh;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-card {
+            background: rgba(30, 27, 61, 0.7);
+            backdrop-filter: blur(12px);
+        }
+        .text-glow-cyan {
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<nav class="bg-slate-950/70 backdrop-blur-xl fixed top-0 w-full z-50 flex justify-between items-center px-8 py-4 max-w-full transition-all duration-300 ease-in-out">
+<div class="text-2xl font-headline font-bold text-rose-500 tracking-tighter">OneRishi</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-rose-400 font-bold border-b-2 border-rose-500 pb-1 font-headline italic font-medium" href="#nexus">Nexus</a>
+<a class="text-slate-400 hover:text-slate-100 transition-colors font-headline italic font-medium" href="#studio">StudioRavya</a>
+<a class="text-slate-400 hover:text-slate-100 transition-colors font-headline italic font-medium" href="#agency">Agency</a>
+<a class="text-slate-400 hover:text-slate-100 transition-colors font-headline italic font-medium" href="#poetry">Poetry</a>
+</div>
+<button class="hover:bg-slate-800/50 rounded-lg p-2 transition-colors">
+<span class="material-symbols-outlined text-rose-500" data-icon="menu">menu</span>
+</button>
+</nav>
+<!-- SideNavBar (Sticky Tracker) -->
+<aside class="fixed right-8 flex flex-col items-center z-50 top-1/2 -translate-y-1/2 h-fit py-8 rounded-full bg-slate-900/80 backdrop-blur-md shadow-[0_12px_32px_rgba(0,0,0,0.08)]">
+<div class="flex flex-col items-center justify-center space-y-4">
+<a class="flex flex-col items-center justify-center bg-amber-400/20 text-amber-400 rounded-full w-3 h-12 transition-all duration-500 group relative" href="#nexus">
+<span class="opacity-0 group-hover:opacity-100 absolute right-8 whitespace-nowrap font-label text-xs tracking-widest uppercase text-amber-400 transition-opacity">Convergence</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 w-2 h-2 rounded-full bg-slate-700 hover:scale-125 transition-transform group relative" href="#studio">
+<span class="opacity-0 group-hover:opacity-100 absolute right-8 whitespace-nowrap font-label text-xs tracking-widest uppercase text-studio-cyan transition-opacity">Dev Lab</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 w-2 h-2 rounded-full bg-slate-700 hover:scale-125 transition-transform group relative" href="#agency">
+<span class="opacity-0 group-hover:opacity-100 absolute right-8 whitespace-nowrap font-label text-xs tracking-widest uppercase text-agency-purple transition-opacity">Media Agency</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 w-2 h-2 rounded-full bg-slate-700 hover:scale-125 transition-transform group relative" href="#poetry">
+<span class="opacity-0 group-hover:opacity-100 absolute right-8 whitespace-nowrap font-label text-xs tracking-widest uppercase text-secondary transition-opacity">Poetry Space</span>
+</a>
+</div>
+</aside>
+<main class="snap-container no-scrollbar">
+<!-- Section 1: The OneRishi Nexus (Hero) -->
+<section class="snap-section relative flex items-center justify-center px-8 bg-surface-dim overflow-hidden" id="nexus">
+<!-- Background Visual: Star Field / Neural Network -->
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-br from-[#110f30] via-[#1a1740] to-[#110f30]"></div>
+<div class="absolute inset-0 opacity-30" data-alt="abstract cosmic starfield pattern with subtle tiny glowing dots on a deep navy blue background" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 40px 40px;"></div>
+</div>
+<div class="relative z-10 text-center max-w-4xl">
+<span class="font-label text-sm tracking-[0.4em] uppercase text-tertiary mb-6 block">Section 01</span>
+<h1 class="font-headline text-5xl md:text-8xl italic font-bold text-on-surface mb-8 leading-[1.1]">
+                    OneRishi: <br/>
+<span class="text-rose-500">The Convergence.</span>
+</h1>
+<p class="font-body text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12">
+                    A multi-faceted digital anthology bridging the gap between technical logic, strategic growth, and poetic expression.
+                </p>
+<div class="flex flex-col items-center gap-8">
+<button class="bg-primary-container text-on-primary-container px-10 py-4 rounded-full font-label font-bold tracking-widest hover:scale-105 transition-all shadow-lg">
+                        ENTER THE NEXUS
+                    </button>
+<div class="animate-bounce">
+<span class="material-symbols-outlined text-4xl text-slate-500" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: StudioRavya (The Dev Lab) -->
+<section class="snap-section bg-surface flex flex-col justify-center px-8 py-20 md:px-24" id="studio">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+<div class="md:col-span-5">
+<span class="font-label text-studio-cyan text-sm tracking-widest uppercase mb-4 block">The Development Powerhouse</span>
+<h2 class="font-headline text-4xl md:text-6xl font-bold mb-8 italic">StudioRavya</h2>
+<p class="font-body text-on-surface-variant text-lg mb-12 max-w-md">
+                        Where code becomes a medium for social change. We architect clean, performant, and inclusive digital infrastructure.
+                    </p>
+<div class="bg-surface-container-lowest p-6 rounded-lg border-l-4 border-studio-cyan shadow-xl">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-3 h-3 rounded-full bg-red-500"></div>
+<div class="w-3 h-3 rounded-full bg-amber-500"></div>
+<div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+<span class="font-label text-xs text-slate-500 ml-4">main.ts</span>
+</div>
+<code class="font-label text-sm text-studio-cyan leading-relaxed block">
+<span class="text-slate-500">const</span> mission = {<br/>
+                              core: <span class="text-white">"accessibility"</span>,<br/>
+                              tech: [<span class="text-white">"React"</span>, <span class="text-white">"Rust"</span>, <span class="text-white">"A11y"</span>],<br/>
+                              vision: <span class="text-white">() =&gt; "Inclusive Web"</span><br/>
+                            };
+                        </code>
+</div>
+</div>
+<div class="md:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Project Card 1 -->
+<div class="bg-surface-container-low p-8 rounded-xl hover:bg-surface-container transition-colors group">
+<div class="mb-6 overflow-hidden rounded-lg">
+<img alt="Junior-Journalist Social App interface" class="w-full h-48 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Modern mobile app interface mockup showing social news feed with minimalist typography and clean clean white space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA51z5VpufWN-yyMt5OuN9KuTneJMmXmWDOZ76XJgBHTH2ZXUkkCjn-TWvGzhrpkSyeCRY5g0Gl1b7EIqk6oyugyCWrSShVVFn-U0GP2ouDTLD1V9so_wD6JQfw59AZYKkQzq69vd4zdNef8_wkOsbpS9VCGlYo1BQRKXr64pNYBHXtGP8EOHpSWxdIGAUz7e9eQXFqgXvr1zw-hYC8Z4k0xnTUN08PuGWo6p0wUrWj_oYNarmyLXhwtBEELkcm8a_HUrcOLa69Z0k"/>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-2">Junior-Journalist</h3>
+<p class="font-body text-sm text-on-surface-variant mb-6">Empowering youth through decentralized social storytelling and verified reporting.</p>
+<a class="font-label text-xs uppercase tracking-widest text-studio-cyan flex items-center gap-2 hover:gap-4 transition-all" href="#">
+                            View Case Study <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Project Card 2 -->
+<div class="bg-surface-container-low p-8 rounded-xl hover:bg-surface-container transition-colors group mt-0 md:mt-12">
+<div class="mb-6 overflow-hidden rounded-lg">
+<img alt="Accessible-Udaipur Database" class="w-full h-48 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Conceptual data visualization showing interconnected nodes and points of interest across a stylized city map in high-tech aesthetics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMtUKnNyrsac99EpgYoFaFvXz7MiH0XEFysaETQdT2SfVWQLqcudaclhlQ--vZQxQftlYBFTEMTSXspoTkkqo7Ze1cVcBLT3J3wVNCma2B_ixqqS51MAGS1ddthKGNO5UfdSgjDK_gyZLvNpg7-J25kuxvJqkP1EVqc-Aop6JA9Dw1SKHW0ZLFIYhbsXafZAqXb-JXTaaNDcDOWd-QWJVd8M0334rbzCz3xFEoyEzoQJWbkX24SX7ABMos1_9gfDFFkLk8slFy2aU"/>
+</div>
+<h3 class="font-headline text-2xl font-bold mb-2">Accessible-Udaipur</h3>
+<p class="font-body text-sm text-on-surface-variant mb-6">A social database initiative mapping physical and digital inclusivity across the city.</p>
+<a class="font-label text-xs uppercase tracking-widest text-studio-cyan flex items-center gap-2 hover:gap-4 transition-all" href="#">
+                            Explore Data <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Global-Galactic-Media (The Agency) -->
+<section class="snap-section bg-surface-container-low flex flex-col justify-center px-8 py-20 md:px-24 overflow-hidden relative" id="agency">
+<div class="absolute -right-24 top-0 text-[20rem] font-headline font-extrabold text-white/[0.03] select-none pointer-events-none">AGENCY</div>
+<div class="relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-2xl">
+<span class="font-label text-agency-purple text-sm tracking-widest uppercase mb-4 block">Strategic Narrative &amp; Reach</span>
+<h2 class="font-headline text-4xl md:text-6xl font-bold italic mb-6">Global-Galactic-Media</h2>
+<p class="font-body text-on-surface-variant text-lg">We don't just manage platforms; we cultivate digital presence for the bold and the visionary.</p>
+</div>
+<button class="border border-on-surface-variant/20 hover:bg-surface-container-highest px-8 py-3 rounded-full font-label text-xs uppercase tracking-widest transition-all">
+                        Work with us
+                    </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="md:col-span-2 md:row-span-2 bg-agency-purple/10 rounded-xl p-8 flex flex-col justify-between min-h-[400px] border border-white/5 group">
+<div>
+<span class="material-symbols-outlined text-4xl text-agency-purple mb-6" data-icon="grid_view" data-weight="fill" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<h4 class="font-headline text-3xl font-bold mb-4">Content Strategy</h4>
+<p class="font-body text-on-surface-variant">Developing multi-channel roadmaps that ensure your brand's voice resonates across the noise.</p>
+</div>
+<div class="mt-8">
+<div class="flex -space-x-4 mb-4">
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="close-up portrait of creative professional looking forward" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDqNWujsIwWTFQie5QV2JbYg0-oUsjQSBt2k-GWazyJi2Z_fba3_2CGhFzb72J9Upq2Rg19-h-jpsp6-s44FA6Ka0cxwDUAmmSRs4s-uc6DHmM7y6wC3bOpcYlsuvCrcrSPOVWgTxsoCOx39-1BlDaVgLhKl62fQAbDcipAYEDoer144s2iAArtNxHwH1b1zBgGLhc2Syl5GQnP06N4pQd94mhT0KUfbMR6Ip4ZorgJrjbii8plDD_d2hlFpWp3sSsYjPu8b-cLvw"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="smiling woman with glasses in a modern studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjj8vcpgp23GdQgTSCHTIfJXMZJAC7jcvbCUXrONuw5iiwr8ho9iDaOYIpp_1rK8fQ92UyIrK5z__4m42PRUbDjyWS0AXJwvGxfIWazQfdAX6iiw8Q2w41Y7RaEnbFfeaHj-sykZt0EE1TMbMN7dF9H0jnQlcGyjsqVVMQwmKJu892BPMWRQjq-1rJkgkZX_L_HK-EnnVOaqfW9zP2kaBfTaxqn2bTgGveUF6sWvkDJXpgYDpYiNxgGuBcd3MlPNaRqoZ4UoJ8fMA"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface" data-alt="creative man working at desk with minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhC8YlUTJ0RnF6_xbR2yBV6xPp7FTMJyJq6kMQeGnjzkpxMp7IRMtv8TFpKfOZnus4M2bs4IjX4CED05RRjVDCdF5BZhhI3U5pVDTcgoOCHxSMYsmH3flQqRkWoryic7my0YFioy4wDkwdMPbgWRc8576mz3G_A3CnapWqi0pIC4z-SOVStTnTmHnJbhtViyvyVbxcFe1t9EsoxG_2567lAV0j75aWVZ0hWEy8HYCR0DnonuYQo-qox5PIJSjoNyQ4pv-EPxpVO2o"/>
+</div>
+<span class="font-label text-[10px] text-agency-purple tracking-widest uppercase">Trusted by 50+ Global Clients</span>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border border-white/5 hover:border-agency-purple/30 transition-all">
+<span class="material-symbols-outlined text-agency-purple mb-4" data-icon="trending_up">trending_up</span>
+<h5 class="font-label text-xs font-bold uppercase tracking-widest mb-2">Social Analytics</h5>
+<p class="font-body text-xs text-on-surface-variant">Deep data-driven insights into audience behavior.</p>
+</div>
+<div class="bg-surface-container p-6 rounded-xl border border-white/5 hover:border-agency-purple/30 transition-all">
+<span class="material-symbols-outlined text-agency-purple mb-4" data-icon="campaign">campaign</span>
+<h5 class="font-label text-xs font-bold uppercase tracking-widest mb-2">Campaigns</h5>
+<p class="font-body text-xs text-on-surface-variant">Viral-ready storytelling for future-focused brands.</p>
+</div>
+<div class="md:col-span-2 bg-surface p-8 rounded-xl border border-white/5 flex items-center justify-between group cursor-pointer hover:bg-agency-purple/5 transition-all">
+<div class="flex gap-6 items-center">
+<div class="w-12 h-12 rounded-lg bg-agency-purple/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-agency-purple" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<div>
+<h5 class="font-headline text-xl font-bold">Launch Identity</h5>
+<p class="font-body text-xs text-on-surface-variant">End-to-end brand architecture from zero to one.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-500 group-hover:text-agency-purple group-hover:translate-x-2 transition-all" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Khayal-Rishi-Ka (The Poetry Space) -->
+<section class="snap-section bg-[#1a1738] flex flex-col justify-center px-8 py-20 md:px-24 relative" id="poetry">
+<!-- Ink Blot Effects -->
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="max-w-3xl mx-auto text-center relative z-10">
+<span class="font-label text-secondary text-sm tracking-[0.3em] uppercase mb-12 block">The Poetry Space</span>
+<h2 class="font-headline text-5xl md:text-7xl font-bold text-on-surface mb-16 italic">Khayal-Rishi-Ka</h2>
+<div class="space-y-24">
+<!-- Poem Snippet 1 -->
+<article class="flex flex-col items-center">
+<div class="w-px h-16 bg-gradient-to-b from-transparent via-secondary/40 to-transparent mb-12"></div>
+<p class="font-headline text-2xl md:text-3xl italic text-on-surface leading-relaxed max-w-xl">
+                            "In the intersection of binary and breath,<br/>
+                            we find the quiet rhythm<br/>
+                            of a soul transcribed in code."
+                        </p>
+<span class="font-label text-xs uppercase tracking-widest text-slate-500 mt-8">— Fragments of The Nexus</span>
+</article>
+<!-- Poem Snippet 2 -->
+<article class="flex flex-col items-center">
+<div class="w-px h-16 bg-gradient-to-b from-transparent via-secondary/40 to-transparent mb-12"></div>
+<p class="font-headline text-2xl md:text-3xl italic text-on-surface leading-relaxed max-w-xl">
+                            "The ink of morning<br/>
+                            spills upon the digital page,<br/>
+                            waiting for the user<br/>
+                            to scroll into existence."
+                        </p>
+<button class="mt-12 text-secondary font-label text-xs tracking-widest uppercase flex items-center gap-2 group">
+                            Read Entire Anthology <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform" data-icon="auto_stories">auto_stories</span>
+</button>
+</article>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="snap-section bg-[#110f30] flex flex-col md:flex-row justify-between items-center px-12 py-12 border-t border-white/5">
+<div class="mb-8 md:mb-0">
+<div class="font-headline text-slate-200 text-2xl mb-2">OneRishi</div>
+<p class="font-body text-slate-500 text-sm tracking-tight">© 2024 OneRishi. Digital Anthology.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 md:gap-12">
+<a class="text-slate-500 hover:text-rose-400 font-body text-sm transition-colors" href="#">Privacy</a>
+<a class="text-slate-500 hover:text-rose-400 font-body text-sm transition-colors" href="#">Contact</a>
+<a class="text-slate-500 hover:text-rose-400 font-body text-sm transition-colors" href="#">Manifesto</a>
+</div>
+<div class="mt-8 md:mt-0 flex gap-6">
+<a class="text-slate-500 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+</a>
+<a class="text-slate-500 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</a>
+<a class="text-slate-500 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</a>
+</div>
+</footer>
+</main>
+<!-- Contextual Floating Action Button (FAB) - Visible only on key narrative screens -->
+<button class="fixed bottom-8 right-8 z-40 bg-secondary text-on-secondary p-4 rounded-full shadow-2xl hover:scale-110 transition-transform md:hidden">
+<span class="material-symbols-outlined text-2xl" data-icon="explore">explore</span>
+</button>
+</body></html>
